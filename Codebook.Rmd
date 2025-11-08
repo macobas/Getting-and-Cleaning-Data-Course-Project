@@ -1,0 +1,60 @@
+---
+title: "Untitled"
+output: html_document
+date: "2025-11-08"
+---
+
+## Source of Data
+This data comes from the **Human Activity Recognition Using Smartphones Dataset**, available from the UCI Machine Learning Repository:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The experiments were carried out with 30 volunteers performing six different activities (walking, walking upstairs, walking downstairs, sitting, standing, and laying) while wearing a smartphone on their waist.
+
+---
+
+## Variables
+
+- **subject** – ID of the subject (integer: 1–30)
+- **activity** – Activity name (factor: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+
+All other variables are numeric and represent the **average** of each measurement (mean or standard deviation) for each combination of subject and activity.
+
+Examples include:
+- `TimeBodyAccelerometerMeanX`
+- `TimeBodyAccelerometerMeanY`
+- `TimeBodyAccelerometerStdZ`
+- `FrequencyBodyGyroscopeMeanX`
+- `FrequencyBodyAccelerometerJerkStdY`
+…and so on.
+
+---
+
+## Transformations
+
+1. **Merge training and test datasets**
+   - Combined `X_train`/`X_test`, `y_train`/`y_test`, and `subject_train`/`subject_test`.
+
+2. **Extract only mean and standard deviation features**
+   - Selected variables with names containing `mean()` or `std()`.
+
+3. **Apply descriptive activity names**
+   - Replaced activity codes (1–6) with activity labels from `activity_labels.txt`.
+
+4. **Label variables with descriptive names**
+   - Replaced abbreviations:
+     - `t` → `Time`
+     - `f` → `Frequency`
+     - `Acc` → `Accelerometer`
+     - `Gyro` → `Gyroscope`
+     - `Mag` → `Magnitude`
+     - Removed parentheses and dashes.
+
+5. **Create a second tidy dataset**
+   - Averaged each variable for each subject and each activity.
+   - Output file: `tidy_data.txt`.
+
+---
+
+## Output
+
+`tidy_data.txt` – a tidy dataset with 180 rows (30 subjects × 6 activities) and 68 columns.
