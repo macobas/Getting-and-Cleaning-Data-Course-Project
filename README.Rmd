@@ -1,0 +1,47 @@
+---
+title: "README"
+output: 
+date: "2025-11-08"
+---
+# Getting and Cleaning Data - Course Project
+
+This repository contains the files for the Coursera *Getting and Cleaning Data* course project.  
+The goal of this project is to demonstrate the ability to collect, work with, and clean a data set.
+
+## Overview
+
+The data represent recordings from accelerometers on the Samsung Galaxy S smartphone.  
+The script `run_analysis.R` downloads the raw data, cleans it, and produces a tidy data set that can be used for later analysis.
+
+## Files in this Repository
+
+- **run_analysis.R** – the R script that performs all steps of data cleaning.
+- **tidy_data.txt** – the tidy dataset produced by the script.
+- **CodeBook.md** – explains the variables, data, and transformations performed.
+
+## How to Run
+
+1. Make sure R and the `dplyr` package are installed.
+2. Save `run_analysis.R` in your working directory.
+3. Run the script in R:
+   ```r
+   source("run_analysis.R")
+
+
+#The script will:
+
+1. Download and unzip the dataset.
+2. Merge the training and test sets.
+3. Extract only mean and standard deviation measurements.
+4. Label activities and variables with descriptive names.
+5. Create a tidy dataset tidy_data.txt containing the average of each variable for each activity and each subject.
+
+#Dependencies
+
+1. R (version ≥ 3.6)
+2. dplyr package
+
+#Data Source
+
+Human Activity Recognition Using Smartphones Dataset
+Available at: UCI Machine Learning Repository
